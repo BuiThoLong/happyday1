@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/category/{id}', [HomeController::class, 'category'])->name('category');
+Route::prefix('admin')->group(function () {
+    Route::get('resort', [StoreController::class, 'store'])->name('store.resort');
+});
