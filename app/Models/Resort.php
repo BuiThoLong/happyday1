@@ -9,5 +9,19 @@ class Resort extends Model
 {
     use HasFactory;
     protected $table = "resort";
+    public function image()
+    {
+        return $this->belongsTo(Image::class, 'category_id', 'id');
+    }
+    protected $fillable = [
+        'name',
+        'price',
+        'limit',
+        'size',
+        'bed',
+        'category_id',
+        'desc'
+    ];
+    
 
 }
